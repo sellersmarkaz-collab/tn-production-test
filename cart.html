@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your cart | Tn Production</title>
+  <meta name="description" content="Review your items, update quantities, and apply a discount code.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="page">
+  <div class="container">
+    <h1>Your cart</h1>
+
+    <div class="cart-layout">
+
+      <section id="cart-items" aria-live="polite"></section>
+
+      <aside class="summary" aria-label="Order summary">
+        <h2 style="font-size:1.2rem">Order summary</h2>
+
+        <div class="row"><span>Subtotal</span><span id="sum-subtotal">0</span></div>
+        <div class="row" id="row-discount" hidden><span>Discount <span id="sum-coupon"></span></span><span id="sum-discount"></span></div>
+        <div class="row"><span>Shipping</span><span id="sum-shipping">0</span></div>
+        <div class="row total"><span>Total</span><span id="sum-total">0</span></div>
+
+        <form class="coupon-form" id="coupon-form">
+          <label class="sr-only" for="coupon">Discount code</label>
+          <input id="coupon" type="text" placeholder="Discount code" autocomplete="off">
+          <button class="btn-outline" type="submit">Apply</button>
+        </form>
+        <p class="msg" id="coupon-msg" role="status"></p>
+        <p><button class="btn-outline" type="button" id="coupon-remove" hidden>Remove code</button></p>
+
+        <div style="margin-top:18px; display:grid; gap:10px">
+          <a class="btn btn-block" href="checkout.html" id="go-checkout">Checkout</a>
+          <a class="btn-outline btn-block" href="shop.html">Continue shopping</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/common.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

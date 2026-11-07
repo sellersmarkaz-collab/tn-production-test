@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout | Tn Production</title>
+  <meta name="description" content="Enter your delivery details and choose a payment method.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="page">
+  <div class="container">
+    <h1>Checkout</h1>
+
+    <div class="notice">
+      This page sends your order to us for confirmation. It does not take card payments.
+      Your order is not final until we confirm it with you.
+    </div>
+
+    <div class="cart-layout">
+
+      <section>
+        <form id="checkout-form" novalidate>
+
+          <h2 style="font-size:1.25rem">Contact details</h2>
+          <div class="form-grid">
+            <div class="field" data-field="name">
+              <label for="c-name">Full name</label>
+              <input id="c-name" name="name" type="text" autocomplete="name" required>
+              <p class="error-text">Please enter your full name.</p>
+            </div>
+            <div class="field" data-field="phone">
+              <label for="c-phone">Phone number</label>
+              <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="Include country code" required>
+              <p class="error-text">Please enter a valid phone number.</p>
+            </div>
+            <div class="field full" data-field="email">
+              <label for="c-email">Email</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" required>
+              <p class="error-text">Please enter a valid email address.</p>
+            </div>
+          </div>
+
+          <h2 style="font-size:1.25rem; margin-top:28px">Delivery address</h2>
+          <div class="form-grid">
+            <div class="field" data-field="country">
+              <label for="c-country">Country</label>
+              <input id="c-country" name="country" type="text" autocomplete="country-name" required>
+              <p class="error-text">Please enter your country.</p>
+            </div>
+            <div class="field" data-field="city">
+              <label for="c-city">City</label>
+              <input id="c-city" name="city" type="text" autocomplete="address-level2" required>
+              <p class="error-text">Please enter your city.</p>
+            </div>
+            <div class="field full" data-field="address">
+              <label for="c-address">Full delivery address</label>
+              <textarea id="c-address" name="address" autocomplete="street-address" required></textarea>
+              <p class="error-text">Please enter your full delivery address.</p>
+            </div>
+            <div class="field" data-field="postal">
+              <label for="c-postal">Postal code</label>
+              <input id="c-postal" name="postal" type="text" autocomplete="postal-code">
+              <p class="hint">Leave empty if your country does not use postal codes.</p>
+            </div>
+            <div class="field full">
+              <label for="c-notes">Order notes (optional)</label>
+              <textarea id="c-notes" name="notes" placeholder="For example: call before delivery"></textarea>
+            </div>
+          </div>
+
+          <h2 style="font-size:1.25rem; margin-top:28px">Payment method</h2>
+          <div class="payment-box" role="radiogroup" aria-label="Payment method">
+            <label><input type="radio" name="payment" value="cod" checked> Cash on delivery</label>
+            <label><input type="radio" name="payment" value="bank"> Bank transfer</label>
+            <div class="bank-details" id="bank-details" hidden>
+              <strong>Bank details</strong>
+              <p class="muted" style="margin:6px 0 0">
+                Account name: <span id="bank-name"></span><br>
+                Bank: <span id="bank-bank"></span><br>
+                Account number: <span id="bank-number"></span><br>
+                Routing / SWIFT / IBAN: <span id="bank-route"></span>
+              </p>
+              <p style="margin:8px 0 0">After you place your order, send the transfer and your order reference to us.</p>
+            </div>
+          </div>
+
+          <p class="msg error" id="form-msg" role="alert"></p>
+
+          <button class="btn btn-block" type="submit" id="place-order" style="margin-top:18px">Send order request</button>
+        </form>
+
+        <div id="confirm" hidden style="margin-top:24px">
+          <div class="notice" style="border-color:#1b7f3b; background:#eefaf2">
+            <strong>Your order request is ready.</strong>
+            <p style="margin:6px 0 0">Your order reference is <strong id="order-ref"></strong>.
+              <span id="confirm-note"></span></p>
+          </div>
+          <textarea id="order-text" rows="12" readonly style="width:100%; font:inherit; padding:12px; border-radius:10px; border:1px solid #d8d6e2"></textarea>
+          <p><button class="btn-outline" type="button" id="copy-order">Copy order details</button></p>
+        </div>
+      </section>
+
+      <aside class="summary" aria-label="Your order">
+        <h2 style="font-size:1.2rem">Your order</h2>
+        <div id="sum-lines"></div>
+        <div class="row"><span>Subtotal</span><span id="sum-subtotal"></span></div>
+        <div class="row" id="row-discount" hidden><span>Discount <span id="sum-coupon"></span></span><span id="sum-discount"></span></div>
+        <div class="row"><span>Shipping</span><span id="sum-shipping"></span></div>
+        <div class="row total"><span>Total</span><span id="sum-total"></span></div>
+        <p><a href="cart.html">Edit cart</a></p>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/common.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

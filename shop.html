@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop | Tn Production</title>
+  <meta name="description" content="Browse all Tn Production products. Filter by category, price, size, color, and availability.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="page">
+  <div class="container">
+    <h1 id="shop-title">Shop</h1>
+
+    <div class="shop-layout">
+
+      <!-- Filters. The "Categories" menu link points to this section. -->
+      <aside class="filters" id="filters" aria-label="Product filters">
+        <form id="filter-form">
+          <fieldset>
+            <legend>Search</legend>
+            <input type="search" id="f-q" name="q" placeholder="Search products" aria-label="Search products">
+          </fieldset>
+
+          <fieldset id="categories">
+            <legend>Category</legend>
+            <div id="f-categories"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Price range</legend>
+            <div class="price-inputs">
+              <input type="number" id="f-min" min="0" step="1" placeholder="Min" aria-label="Minimum price">
+              <span>to</span>
+              <input type="number" id="f-max" min="0" step="1" placeholder="Max" aria-label="Maximum price">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Size</legend>
+            <select id="f-size" aria-label="Size"></select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Color</legend>
+            <select id="f-color" aria-label="Color"></select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Availability</legend>
+            <label><input type="checkbox" id="f-stock"> In stock only</label>
+          </fieldset>
+
+          <button class="btn-outline btn-block" type="button" id="f-reset">Clear all filters</button>
+        </form>
+      </aside>
+
+      <section>
+        <div class="shop-toolbar">
+          <div>
+            <button class="btn-outline filter-toggle" type="button" id="filter-toggle" aria-controls="filters" aria-expanded="false">Filters</button>
+            <span class="muted" id="result-count" aria-live="polite"></span>
+          </div>
+          <label>
+            <span class="sr-only">Sort by</span>
+            <select id="sort" aria-label="Sort by">
+              <option value="latest">Latest products</option>
+              <option value="popularity">Popularity</option>
+              <option value="best">Best sellers</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="product-grid" id="shop-grid"></div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/common.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
